@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * TOKENS DE DESIGN — Tennis Club Avesnes Les Aubert
+ * "Anatomie du court" : bleu = surface de jeu, orange = dégagement, blanc = lignes.
+ * Tout le site doit piocher ses couleurs/animations ici, jamais en dur ailleurs.
+ */
+@theme {
+  /* Couleurs — échantillonnées sur les courts réels, à affiner avec de vraies photos */
+  --color-court-blue: #1e5aa8;
+  --color-court-orange: #d9662b;
+  --color-white-line: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-paper: #faf7f2;
+
+  /* Polices, chargées via next/font dans app/layout.tsx */
+  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+
+  /* Courbes d'animation (voir cahier des charges) */
+  --ease-vif: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-pose: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Durées d'animation */
+  --duration-reaction: 150ms; /* feedback bouton/carte : 120-180ms */
+  --duration-apparition: 350ms; /* apparition au scroll : 300-450ms */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/*
+ * Rayons : utiliser uniquement les utilitaires Tailwind par défaut, jamais de valeur custom.
+ *   rounded-none -> 0px  (éléments pleine largeur, cadre "champ")
+ *   rounded-sm   -> 4px  (petits éléments : pastilles, badges)
+ *   rounded-lg   -> 8px  (cartes)
+ *
+ * Espacement : échelle Tailwind par défaut, déjà en base 4px
+ * (1=4px, 2=8px, 3=12px, 4=16px, 6=24px, 8=32px, 12=48px, 16=64px, 24=96px, 32=128px).
+ * Ne jamais utiliser de valeur arbitraire type p-[13px].
+ */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
 }
