@@ -57,7 +57,7 @@ export function Navigation() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 transition-colors duration-reaction ease-vif ${
+        className={`fixed inset-x-0 top-0 z-40 transition-colors duration-reaction ease-vif ${
           fondSolide ? "bg-paper text-ink" : "bg-transparent text-white-line"
         }`}
       >

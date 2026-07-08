@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
+import { infosSite } from "@/contenu/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,9 +15,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tennis Club Avesnes Les Aubert",
-  description:
-    "Tournoi annuel du Tennis Club Avesnes Les Aubert, à Avesnes-les-Aubert (Nord).",
+  metadataBase: new URL(infosSite.urlSite),
+  title: {
+    default: `${infosSite.nomTournoi} — ${infosSite.ville}`,
+    template: `%s — ${infosSite.nomClub}`,
+  },
+  description: `${infosSite.nomTournoi}, du ${infosSite.datesLisibles} à ${infosSite.ville} (Nord). Programme, résultats, tableaux et infos pratiques.`,
 };
 
 export default function RootLayout({
@@ -31,7 +35,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans antialiased">
         <Navigation />
-        {children}
+        {/* pt-16 compense le header "fixed" (h-16) pour qu'il ne recouvre jamais le
+            contenu. Seul le Hero de l'accueil annule ce padding (-mt-16) pour
+            passer derrière le header transparent. */}
+        <main className="flex flex-1 flex-col pt-16">{children}</main>
       </body>
     </html>
   );
