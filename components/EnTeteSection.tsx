@@ -3,6 +3,8 @@ type EnTeteSectionProps = {
   titre: string;
   description?: string;
   className?: string;
+  /** "h1" si c'est le titre principal de la page, "h2" si c'est une section (par défaut). */
+  niveau?: "h1" | "h2";
 };
 
 /** Petit motif bleu-blanc-orange : la "loi de la ligne blanche" en miniature, sous chaque titre de section. */
@@ -21,7 +23,9 @@ export function EnTeteSection({
   titre,
   description,
   className,
+  niveau = "h2",
 }: EnTeteSectionProps) {
+  const Titre = niveau;
   return (
     <div className={`flex flex-col gap-3 ${className ?? ""}`}>
       {eyebrow ? (
@@ -29,7 +33,7 @@ export function EnTeteSection({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="font-heading text-3xl font-bold text-ink">{titre}</h2>
+      <Titre className="font-heading text-3xl font-bold text-ink">{titre}</Titre>
       <MotifLigne />
       {description ? (
         <p className="max-w-2xl text-base text-ink/80">{description}</p>

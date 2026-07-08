@@ -41,3 +41,32 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
 }
+
+/*
+ * Apparition au scroll (une seule fois) : fondu + légère montée.
+ * Posée par ApparitionAuScroll.tsx, qui ajoute .apparition-visible via
+ * IntersectionObserver. Neutralisée ci-dessous pour prefers-reduced-motion.
+ */
+.apparition {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--duration-apparition) var(--ease-pose),
+    transform var(--duration-apparition) var(--ease-pose);
+}
+
+.apparition-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

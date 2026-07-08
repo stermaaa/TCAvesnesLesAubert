@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 export default function InfosPage() {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 py-16 sm:px-8">
-      <EnTeteSection eyebrow="Infos pratiques" titre="Accès, horaires et tarifs" />
+      <EnTeteSection
+        niveau="h1"
+        eyebrow="Infos pratiques"
+        titre="Accès, horaires et tarifs"
+      />
 
       <div className="grid gap-12 sm:grid-cols-2">
         <div className="flex flex-col gap-6">

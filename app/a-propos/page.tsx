@@ -12,6 +12,7 @@ export default function AProposPage() {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 px-4 py-16 sm:px-8">
       <EnTeteSection
+        niveau="h1"
         eyebrow={`Depuis ${aPropos.anneeCreation}`}
         titre={infosSite.nomClub}
       />

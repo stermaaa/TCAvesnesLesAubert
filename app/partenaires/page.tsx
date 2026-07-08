@@ -13,6 +13,7 @@ export default function PartenairesPage() {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-16 sm:px-8">
       <EnTeteSection
+        niveau="h1"
         eyebrow="Merci à eux"
         titre="Nos partenaires"
         description="Le tournoi n'existerait pas sans le soutien de nos partenaires locaux."

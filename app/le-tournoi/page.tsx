@@ -30,6 +30,7 @@ export default function LeTournoiPage() {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-16 sm:px-8">
       <EnTeteSection
+        niveau="h1"
         eyebrow="Le tournoi"
         titre="Programme, résultats et tableaux"
       />

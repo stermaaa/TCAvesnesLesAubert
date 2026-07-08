@@ -13,6 +13,7 @@ export default function VivrePage() {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 py-16 sm:px-8">
       <EnTeteSection
+        niveau="h1"
         eyebrow="Vivre le tournoi"
         titre="Animations, soirées et ambiance"
         description="Le tournoi, ce n'est pas que des matchs : buvette, soirées et activités pour les enfants rythment la quinzaine."
